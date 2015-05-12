@@ -1,0 +1,41 @@
+<h2>Create Project</h2>
+
+<%= form_for @project do |f| %>
+<div>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</div>
+
+<div>
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+</div>
+
+
+<h4>Rewards</h4>
+
+<div id="rewards">
+	<%= fields_for :rewards do |reward_fields| %>
+	<div>
+		<%= reward_fields.label :description %>
+		<%= reward_fields.text_area :description %>
+
+	</div>
+	
+	<div>
+    <%= reward_fields.label :amount %>
+		<%= reward_fields.text_field :amount %>
+
+	</div>	
+
+
+
+	<% end %>
+
+</div>
+
+
+<%= f.submit %>
+
+<% end %>
+
