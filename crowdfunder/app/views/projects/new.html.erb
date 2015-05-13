@@ -15,25 +15,14 @@
 <h4>Rewards</h4>
 
 <div id="rewards">
-	<%= fields_for :rewards do |reward_fields| %>
-	<div>
-		<%= reward_fields.label :description %>
-		<%= reward_fields.text_area :description %>
-
+	<%= f.fields_for :rewards do |reward_fields| %>
+	<%= render 'reward_fields', f: reward_fields %>
+	<div class="links">
+		<%= link_to_add_association 'add reward', f, :rewards %>
 	</div>
-	
-	<div>
-    <%= reward_fields.label :amount %>
-		<%= reward_fields.text_field :amount %>
-
-	</div>	
-
-
+	</div>
 
 	<% end %>
-
-</div>
-
 
 <%= f.submit %>
 

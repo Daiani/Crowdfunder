@@ -7,27 +7,29 @@ class ProjectsController < ApplicationController
 
   def new
   	@project = Project.new
+  	3.times { @project.rewards.build }
   end
 
 
-  def create
+  
 
 def create
-	@project = Project.new(project_params)
+
+ @project = Project.new(project_params)
 
   if @project.save
-  	redirect_to projects_url
+  	redirect_to projects_path
   else
      render 'new'	
 	end
-  end
+end
 
 
 private
 def project_params
-	params.require(:project).permit(:name, :description)
+	params.require(:project).permit(:name, :description, rewards_attributes: [:amount, :description, :_destroy])
 end
 
 end
 
-end
+
