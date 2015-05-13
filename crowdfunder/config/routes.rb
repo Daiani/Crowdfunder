@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'projects#index'
   resources :projects, only: [:index, :new, :create, :show]
+  re
   
 
   # The priority is based upon order of creation: first created -> highest priority.
