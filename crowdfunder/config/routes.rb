@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'projects#index'
 
   
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   resources :user_sessions, only: [:new, :create, :destroy]
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

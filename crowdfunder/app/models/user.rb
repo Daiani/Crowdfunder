@@ -6,5 +6,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_many :ownded_projects, class_name: 'Project'
-  
+  has_many :pledges
+  has_many :rewards, through: :pledges
+  has_many :backed_projects, class_name: 'Project', through: :rewards
+  mount_uploader :avatar, AvatarUploader
 end
