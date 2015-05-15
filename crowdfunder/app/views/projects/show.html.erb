@@ -1,0 +1,14 @@
+<% @project.rewards.each do |reward| %>
+  <div class="reward">
+    <%= reward.title %><br/>
+    <%= reward.description %><br/>
+    <%= reward.amount %><br/>
+
+    <%= form_for pledges_path do |f| %>
+      <%= f.hidden_field :pledge_id, value: reward.amount %>
+      <%= f.submit "Select this reward" %>
+    <% end %>
+
+    
+  </div>
+<% end %>

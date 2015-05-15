@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, uniqueness: true
 
-  has_many :ownded_projects, class_name: 'Project'
+  has_many :owned_projects, class_name: 'Project'
   has_many :pledges
   has_many :rewards, through: :pledges
   has_many :backed_projects, class_name: 'Project', through: :rewards
