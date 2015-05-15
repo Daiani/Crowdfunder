@@ -5,19 +5,26 @@ before_filter :require_login, except: [:index, :show]
 		@projects = Project.all
 	end
 
-
   def new
   	@project = Project.new
   	3.times { @project.rewards.build }
   end
 
+  def show
+    @project = Project.find(params[:id])  
+  end
 
-  
+  def create
+    @project = Project.new(project_params)
+    
+    if @project.save
+    	redirect_to projects_path
+    else
+      render 'new'	
+  	end
+  end
 
-def create
-
- @project = Project.new(project_params)
-
+<<<<<<< HEAD
   if @project.save
   	redirect_to projects_url
   else
@@ -40,15 +47,16 @@ end
 
   end
 
-
 end
 
+
+ 
 
 private
 def project_params
 	params.require(:project).permit(:name, :description, :funding_goals, :start_date, :end_date , rewards_attributes: [:amount, :description, :_destroy])
 end
 
-end
+
 
 

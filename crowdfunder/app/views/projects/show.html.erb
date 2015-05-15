@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+<h1>project:<br/> <%= @project.name %></h1>
+>>>>>>> fbb64f116ddaf41ae7255c8d5a570c17c3a03040
 
 
 
@@ -8,6 +13,7 @@
 <p><%= @project.description %><br/>
 <%= @project.funding_goal %><br/>
 <%= @project.start_date %><br/>
+<<<<<<< HEAD
 <%= @project.end_date %><br/>
 <%= @project.funding_goal %><p> 
 
@@ -31,3 +37,22 @@
 
 
 
+=======
+<%= @project.finish_date %><br/>
+<%= @project.funded %><p>
+
+<% @project.rewards.each do |reward| %>
+  <div class="reward">
+    <%= reward.title %><br/>
+    <%= reward.description %><br/>
+    <%= reward.amount %><br/>
+
+    <%= form_for pledges_path do |f| %>
+      <%= f.hidden_field :pledge_id, value: reward.amount %>
+      <%= f.submit "Select this reward" %>
+    <% end %>
+
+    
+  </div>
+<% end %>
+>>>>>>> fbb64f116ddaf41ae7255c8d5a570c17c3a03040

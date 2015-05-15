@@ -50,13 +50,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'cancancan', '~> 1.10'
-  gem 'pry-rails'
+  gem 'favorite_things'
 
   gem 'rspec-rails', '~> 3.0'
-
-  
-
-
-
 end
 

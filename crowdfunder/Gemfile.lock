@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -60,6 +61,8 @@ GEM
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    did_you_mean (0.9.10)
+      interception
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -67,9 +70,15 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    favorite_things (0.1.7)
+      awesome_print
+      did_you_mean
+      pry-rails
+      quiet_assets
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    interception (0.5)
     jbuilder (2.2.13)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -106,6 +115,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -201,10 +212,10 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.1.0)
   faker
+  favorite_things
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
-  pry-rails
   rails (= 4.2.1)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
