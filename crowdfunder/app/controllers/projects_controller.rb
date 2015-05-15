@@ -24,7 +24,6 @@ before_filter :require_login, except: [:index, :show]
   	end
   end
 
-<<<<<<< HEAD
   if @project.save
   	redirect_to projects_url
   else
