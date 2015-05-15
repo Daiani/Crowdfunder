@@ -10,9 +10,7 @@ before_filter :require_login, except: [:index, :show]
   	3.times { @project.rewards.build }
   end
 
-  def show
-    @project = Project.find(params[:id])  
-  end
+ 
 
   def create
     @project = Project.new(project_params)
@@ -24,12 +22,7 @@ before_filter :require_login, except: [:index, :show]
   	end
   end
 
-<<<<<<< HEAD
-  if @project.save
-  	redirect_to projects_url
-  else
-     render 'new'	
-	end
+
 
 def show
   @project = Project.find(params[:id])
