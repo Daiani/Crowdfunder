@@ -1,0 +1,67 @@
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+
+<p>
+  <b>Funding_goal:</b>
+  <%= @project.funding_goal %>
+</p>
+
+<p>
+  <b>Start_Date:</b>
+  <%= @project.start_date %>
+</p>
+
+
+<p>
+  <b>End_Date:</b>
+  <%= @project.end_date%>
+</p>
+
+<%= link_to 'Back', projects_path %><br/>
+
+
+<% if current_user == @project.user %>
+ <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure you want to delete this project?"} %>
+<% end %>
+
+
+<% @project.rewards.each do |reward| %>
+ <div class="reward">
+   <%= reward.title %><br/>
+   <%= reward.description %><br/>
+   <%= reward.amount %><br/>
+
+   <%= form_for  @pledge do |f| %>
+
+   <%= f.hidden_field :reward_id, value: reward.id %>
+   
+     <%= f.submit "Select this reward" %>
+   <% end %>
+
+   
+ </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

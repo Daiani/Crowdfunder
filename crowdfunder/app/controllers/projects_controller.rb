@@ -23,9 +23,9 @@ before_filter :require_login, except: [:index, :show]
   end
 
 
-
 def show
   @project = Project.find(params[:id])
+  @pledge= Pledge.new
 end
 
 def destroy
@@ -47,7 +47,7 @@ end
 
 private
 def project_params
-	params.require(:project).permit(:name, :description, :funding_goals, :start_date, :end_date , rewards_attributes: [:amount, :description, :_destroy])
+	params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date , rewards_attributes: [:amount, :description, :_destroy])
 end
 
 
