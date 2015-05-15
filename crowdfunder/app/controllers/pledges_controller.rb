@@ -6,7 +6,7 @@ class PledgesController < ApplicationController
   end
 
   def create
-    binding.pry
+    
     @pledge = Pledge.new(pledge_params)
     @pledge.user_id = current_user.id
     # reward = Reward.find(pledge_params[:reward_id])
@@ -21,3 +21,6 @@ class PledgesController < ApplicationController
     params.require(:pledge).permit(:reward_id, :pledge_amount)
   end
 end
+
+
+

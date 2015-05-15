@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+before_filter :require_login, except: [:index]
 	def index
 		@projects = Project.all
 	end
@@ -23,10 +23,14 @@ class ProjectsController < ApplicationController
   	end
   end
 
-  private
-  def project_params
-  	params.require(:project).permit(:name, :description, rewards_attributes: [:amount, :description, :_destroy])
-  end
+
+ 
+
+private
+def project_params
+	params.require(:project).permit(:name, :description, :funding_goals, :start_date, :finish_date , rewards_attributes: [:amount, :description, :_destroy])
+end
+
 
 end
 

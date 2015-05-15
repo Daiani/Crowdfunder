@@ -1,3 +1,14 @@
+
+<h1>project:<br/> <%= @project.name %></h1>
+
+<p><button><%= link_to "back to projects", projects_url %></button>
+
+<p><%= @project.description %><br/>
+<%= @project.funding_goal %><br/>
+<%= @project.start_date %><br/>
+<%= @project.finish_date %><br/>
+<%= @project.funded %><p>
+
 <% @project.rewards.each do |reward| %>
   <div class="reward">
     <%= reward.title %><br/>
