@@ -47,7 +47,7 @@ end
 
 private
 def project_params
-	params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date , rewards_attributes: [:amount, :description, :_destroy])
+	params.require(:project).permit(:project_id, :name, :description, :funding_goal, :start_date, :end_date , rewards_attributes: [:amount, :description, :_destroy])
 end
 
 
