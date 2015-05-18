@@ -9,4 +9,11 @@ amount_raised=pledges.where(project_id: id)
 total_amount=amount_raised.sum(:pledge_amount)
 end
 
+def days_remaining
+  current_time=Time.now
+  days_remaining=((end_date-current_time)/86400).to_i
+end
+
+
+
 end
