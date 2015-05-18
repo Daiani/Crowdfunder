@@ -30,6 +30,10 @@ def show
     @days_remaining = (@project.end_date - @project.start_date).to_i
   end
 
+  @rewards=@project.rewards
+  @pledge= Pledge.new
+end
+
 
 def destroy
   @project = Project.find(params[:id])
@@ -50,9 +54,10 @@ end
 
 private
 def project_params
-	params.require(:project).permit(:project_id, :name, :description, :funding_goal, :start_date, :end_date, :funded, :pic_url, rewards_attributes: [:amount, :description, :_destroy, :id])
+
+	params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date , rewards_attributes: [:amount,:project_id, :description, :_destroy])
+
 end
 
 
-end
 

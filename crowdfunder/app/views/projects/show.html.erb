@@ -38,38 +38,24 @@
 		<b>Money Raised: $<%= @project.funded %></p>
 
 
-
-<!-- <p>
-  <b>Amount Raised:</b>
-  <%= @project.amount_raised%>
-</p> -->
-
-<h2  style= "position:relative;top: 25px;"> Rewards </h2>
-
-
 <% if current_user == @project.user %>
  <%= link_to "Delete", @project, method: :delete, data: {confirm: "Are you sure you want to delete this project?"} %>
 <% end %>
 
 
 <% @project.rewards.each do |reward| %>
- <div class="reward">
-   <%= reward.title %><br/>
-   <%= reward.description %><br/>
-   <%= reward.amount %><br/>
+  <div class="reward">
+     <%= reward.title %><br/>
+     <%= reward.description %><br/>
+     <%= reward.amount %><br/>
 
-   <%= form_for  @pledge do |f| %>
-
-   <%= f.hidden_field :reward_id, value: reward.id %>
-   <%= f.hidden_field :project_id, value: @project.id %>
-   <%= f.hidden_field :pledge_amount, value: reward.amount %>
-  
-     <%= f.submit "Select this reward" %>
-   <% end %>
-
-
-   
- </div>
+     <%= form_for  @pledge do |f| %>
+       <%= f.hidden_field :reward_id, value: reward.id %>
+       <%= f.hidden_field :pledge_amount, value: reward.amount%>
+       <%= f.hidden_field :project_id, value: @project.id%>
+       <%= f.submit "Select this reward" %>
+     <% end %> 
+  </div>
 <% end %></br>
 
 
