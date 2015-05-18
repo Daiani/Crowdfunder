@@ -1,11 +1,15 @@
 <h1>Listing Projects</h1>
 
+
+   
+
 <% @projects.each do |project| %>
 	 <h2><%= project.name %></h2>
 	 <p><%= project.description %></p>
 	 <p><%= project.funding_goal %></p> 
 	 <p><%= project.start_date %></p>
 	 <p><%= project.end_date%></p>
+
 
 
 	</div>
@@ -20,3 +24,4 @@
   <% end %>
 
 <button><%= link_to 'Create New Project', new_project_path %></button> 
+
