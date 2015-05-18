@@ -11,9 +11,8 @@ end
 
 def days_remaining
   current_time=Time.now
-  days_remaining=((end_date-current_time)/86400).to_i
+  #days_remaining=((end_date-current_time)/86400).to_i
+  (end_date.to_date-current_time.to_date).to_i
 end
-
-
 
 end
