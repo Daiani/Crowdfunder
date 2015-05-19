@@ -50,9 +50,11 @@ end
 private
 def project_params
 
+end
+
+
 	params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date , :photo,  rewards_attributes:  [:amount,:project_id, :description, :_destroy])
 
-end
 
 
 
