@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
 
-  resources :projects, only: [:index, :new, :create, :show]
-  resources :pledges, only: [:new, :create]
-  
+  resources :projects, only: [:index, :new, :create, :show, :destroy]
+  resources :pledges, only: [:new, :create ]
+
 
   
 

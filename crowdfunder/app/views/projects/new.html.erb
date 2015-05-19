@@ -1,5 +1,7 @@
 <h2>Create Project</h2>
 
+
+
 <%= form_for @project do |f| %>
 <div>
 	<%= f.label :name %>
@@ -29,6 +31,11 @@
 	<%= f.date_field :end_date %>
 </div>
 
+
+<div>
+	<%= f.label :photo %>
+	<%= f.text_field :photo %>
+</div>
 
 <h4>Rewards</h4>
 

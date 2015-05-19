@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-before_filter :require_login, except: [:index, :show]
+before_filter :require_login, except: [:index, :show, :new]
 
 	def index
 		@projects = Project.all
@@ -25,12 +25,7 @@ before_filter :require_login, except: [:index, :show]
 
 def show
   @project = Project.find(params[:id])
-  if current_user
-    @pledge = @project.pledges.build
-    @days_remaining = (@project.end_date - @project.start_date).to_i
-  end
-
-  @rewards=@project.rewards
+  
   @pledge= Pledge.new
 end
 
@@ -55,7 +50,7 @@ end
 private
 def project_params
 
-	params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date , rewards_attributes: [:amount,:project_id, :description, :_destroy])
+	params.require(:project).permit(:name, :description, :funding_goal, :start_date, :end_date , :photo,  rewards_attributes:  [:amount,:project_id, :description, :_destroy])
 
 end
 
