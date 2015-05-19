@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
   has_many :owned_projects, class_name: 'Project'
   has_many :pledges
   has_many :rewards, through: :pledges
-  has_many :backed_projects, class_name: 'Project', through: :rewards
+  has_many :backed_projects, class_name: 'Project', through: :pledges, source: :project
   mount_uploader :avatar, AvatarUploader
+
+
+  def total_amount_pledged
+    pledges.sum(:pledge_amount)
+  end
 end

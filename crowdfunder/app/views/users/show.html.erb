@@ -1,5 +1,36 @@
-<h1><%= @user.first_name %> </h1>
 
-<div>
+
+<p>
+  <b>First Name:</b>
+  <%= @user.first_name %>
+</p>
+<p>
+  <b>Last Name:</b>
+  <%= @user.last_name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<b > Profile Picture: </b>
   <%= image_tag @user.avatar.url %>
 </div>
+
+
+ <p>
+
+  <b>Backed Projects:</b> </br>
+  
+  <% @projects.each do |project| %>
+  <b> Project name: </b>
+ <%=project.name%> 
+ <b> Description: </b>
+ <%=project.description%> 
+ <b> Funding Goal: </b>
+ <%=project.funding_goal%> </br>
+    
+  <%end%>
+  </p> 
+<b> Total Amount Pledged: </b>
+<%=@user.total_amount_pledged%>
